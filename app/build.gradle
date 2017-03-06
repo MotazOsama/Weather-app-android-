@@ -33,4 +33,7 @@ dependencies {
 
     compile project(':weatherlib')
 
+    compile 'uk.co.chrisjenx:calligraphy:2.2.0'
+
+
 }

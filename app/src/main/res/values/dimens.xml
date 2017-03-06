@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="city_name_top_margin">60dp</dimen>
+    <dimen name="city_name_text_size">36sp</dimen>
+    <dimen name="forecast_date_text_size">20sp</dimen>
+    <dimen name="forecast_date_margin_top">30dp</dimen>
+</resources>

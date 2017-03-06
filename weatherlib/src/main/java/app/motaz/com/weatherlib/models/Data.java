@@ -10,6 +10,9 @@ import java.util.List;
  */
 
 public class Data {
+    @SerializedName("error")
+    @Expose
+    private List<Error> error = null;
     @SerializedName("request")
     @Expose
     private List<Request> request = null;
@@ -53,5 +56,13 @@ public class Data {
 
     public void setClimateAverages(List<ClimateAverage> climateAverages) {
         this.climateAverages = climateAverages;
+    }
+
+    public List<Error> getError() {
+        return error;
+    }
+
+    public void setError(List<Error> error) {
+        this.error = error;
     }
 }

@@ -92,10 +92,7 @@ public class CityForecastDetailsFragment
     public void showForecastResponse(ForecastResponse forecastResponse) {
         tvCityName.setText(forecastResponse.getData().getRequest().get(0).getQuery());
         tvForecastDate.setText(DateUtils.
-                getFormatedDate(forecastResponse.getData().getWeather().get(0).getDate()) +
-                " " +
-                forecastResponse.getData().
-                        getCurrentCondition().get(0).getObservationTime());
+                getFormatedDate(forecastResponse.getData().getWeather().get(0).getDate()));
         tvForecastTemp.
                 setText(forecastResponse.getData().
                         getCurrentCondition().get(0).getTempC() + "\u2103");

@@ -3,6 +3,7 @@ package app.motaz.com.weatherapp.UI.activities;
 import android.content.Context;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
+import android.support.v4.widget.SwipeRefreshLayout;
 import android.view.View;
 import android.widget.ImageView;
 
@@ -30,6 +31,10 @@ public class HomeActivity extends BaseActivity<HomeViewInterface, HomeActivityPr
     @BindView(R.id.icon_menu)
     ImageView iconMenu;
     public boolean cityDetailsIsShown;
+    @BindView(R.id.swipe_to_refresh_layout)
+    SwipeRefreshLayout swipeToRefreshLayout;
+
+    String lastSelectedCity;
 
     @NonNull
     @Override
@@ -43,13 +48,22 @@ public class HomeActivity extends BaseActivity<HomeViewInterface, HomeActivityPr
         setContentView(R.layout.activity_home);
         ButterKnife.bind(this);
         ArrayList<String> allCities = CitiesInteractor.newInstance().getAllCities(this);
-        showCityForecast(allCities.get(0));
+        lastSelectedCity = allCities.get(0);
+        showCityForecast(lastSelectedCity);
+        swipeToRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
+            @Override
+            public void onRefresh() {
+                showCityForecast(lastSelectedCity);
+                swipeToRefreshLayout.setRefreshing(false);
+            }
+        });
     }
 
     private void showCityForecast(String city) {
         cityDetailsIsShown = true;
+        lastSelectedCity = city;
         replaceFragment(R.id.fl_fragment_container,
-                CityForecastDetailsFragment.newInstance(city),
+                CityForecastDetailsFragment.newInstance(lastSelectedCity),
                 getSupportFragmentManager(), true);
     }
 
@@ -79,7 +93,8 @@ public class HomeActivity extends BaseActivity<HomeViewInterface, HomeActivityPr
 
     @Override
     public void onCitySelected(String city) {
-        showCityForecast(city);
+        lastSelectedCity = city;
+        showCityForecast(lastSelectedCity);
         iconMenu.setVisibility(View.VISIBLE);
     }
 }

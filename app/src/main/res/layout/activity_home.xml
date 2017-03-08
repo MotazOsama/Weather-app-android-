@@ -16,9 +16,9 @@
 
     <ImageView
         android:id="@+id/icon_menu"
-        android:layout_width="25dp"
-        android:layout_height="25dp"
+        android:layout_width="@dimen/menu_size"
+        android:layout_height="@dimen/menu_size"
         android:layout_gravity="end"
-        android:layout_margin="10dp"
+        android:layout_margin="@dimen/menu_margin"
         android:src="@drawable/menu" />
 </FrameLayout>

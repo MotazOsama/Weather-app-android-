@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="50dp"
+    android:layout_marginEnd="@dimen/weather_row_view_side_margin"
+    android:layout_marginStart="@dimen/weather_row_view_side_margin"
+    android:background="@android:color/transparent"
+    android:orientation="vertical"
+    tools:background="@android:color/black">
+
+    <TextView
+        android:id="@+id/tv_weather_item_date"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:textColor="@android:color/white"
+        android:textSize="20sp"
+        tools:text="Tuesday, MAR 7" />
+
+    <ImageView
+        android:id="@+id/iv_weather_icon"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_alignParentEnd="true"
+        android:layout_centerVertical="true"
+        android:layout_marginEnd="10dp"
+        android:layout_marginStart="40dp"
+        android:src="@drawable/cloudy_day"
+        tools:src="@drawable/cloudy_day" />
+
+    <TextView
+        android:id="@+id/tv_weather_temp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_toEndOf="@id/tv_weather_item_date"
+        android:layout_toStartOf="@id/iv_weather_icon"
+        android:textAlignment="textEnd"
+        android:textColor="@android:color/white"
+        android:textSize="20sp"
+        tools:text="10-20" />
+</RelativeLayout>

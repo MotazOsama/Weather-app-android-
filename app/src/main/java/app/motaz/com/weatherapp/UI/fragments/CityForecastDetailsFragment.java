@@ -5,15 +5,22 @@ import android.support.annotation.Nullable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.bumptech.glide.Glide;
 import com.hannesdorfmann.mosby.mvp.MvpFragment;
 
+import java.util.List;
+
 import app.motaz.com.weatherapp.R;
+import app.motaz.com.weatherapp.UI.WeatherAdapter;
 import app.motaz.com.weatherlib.models.ForecastResponse;
+import app.motaz.com.weatherlib.models.Weather;
 import app.motaz.com.weatherlib.presenters.CityForecastDetailsFragmentPresenter;
+import app.motaz.com.weatherlib.utils.DateUtils;
 import app.motaz.com.weatherlib.views.CityForecastDetailsViewInterface;
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -34,6 +41,8 @@ public class CityForecastDetailsFragment
     TextView tvForecastTemp;
     @BindView(R.id.listview_days_forecast_list)
     ListView listviewDaysForecastList;
+    @BindView(R.id.iv_weather_icon)
+    ImageView ivWeatherIcon;
 
     public static CityForecastDetailsFragment newInstance() {
         CityForecastDetailsFragment fragment = new CityForecastDetailsFragment();
@@ -75,8 +84,23 @@ public class CityForecastDetailsFragment
     @Override
     public void showForecastResponse(ForecastResponse forecastResponse) {
         tvCityName.setText(forecastResponse.getData().getRequest().get(0).getQuery());
-        tvForecastDate.setText(forecastResponse.getData().getWeather().get(0).getDate() + " " +
-                forecastResponse.getData().getCurrentCondition().get(0).getObservationTime());
-        tvForecastTemp.setText(forecastResponse.getData().getCurrentCondition().get(0).getTempC() + "\u2103");
+        tvForecastDate.setText(DateUtils.
+                getFormatedDate(forecastResponse.getData().getWeather().get(0).getDate()) +
+                " " +
+                forecastResponse.getData().
+                        getCurrentCondition().get(0).getObservationTime());
+        tvForecastTemp.
+                setText(forecastResponse.getData().
+                        getCurrentCondition().get(0).getTempC() + "\u2103");
+
+        Glide.with(getActivity()).load(forecastResponse.getData().getCurrentCondition()
+                .get(0).getWeatherIconUrl().get(0).getValue()).into(ivWeatherIcon);
+
+        showNextDaysWeather(forecastResponse.getData().getWeather());
+    }
+
+    private void showNextDaysWeather(List<Weather> weatherList) {
+        WeatherAdapter adapter = new WeatherAdapter(getActivity(), 0, weatherList);
+        listviewDaysForecastList.setAdapter(adapter);
     }
 }

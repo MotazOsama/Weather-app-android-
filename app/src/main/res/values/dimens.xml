@@ -4,4 +4,5 @@
     <dimen name="city_name_text_size">36sp</dimen>
     <dimen name="forecast_date_text_size">20sp</dimen>
     <dimen name="forecast_date_margin_top">30dp</dimen>
+    <dimen name="weather_row_view_side_margin">20dp</dimen>
 </resources>

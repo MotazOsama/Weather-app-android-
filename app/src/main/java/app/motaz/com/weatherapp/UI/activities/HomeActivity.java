@@ -60,9 +60,7 @@ public class HomeActivity extends BaseActivity<HomeViewInterface, HomeActivityPr
 
     @OnClick(R.id.icon_menu)
     public void onMenuIconClicked() {
-        CitiesListFragment citiesListFragment = (CitiesListFragment) getSupportFragmentManager().
-                findFragmentByTag(CitiesListFragment.class.getName());
-        if (citiesListFragment == null) replaceFragment(R.id.fl_fragment_container,
+        replaceFragment(R.id.fl_fragment_container,
                 CitiesListFragment.newInstance(this), getSupportFragmentManager(), true);
         iconMenu.setVisibility(View.GONE);
         cityDetailsIsShown = false;

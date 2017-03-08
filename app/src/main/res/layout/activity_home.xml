@@ -1,13 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/oliver_schwendener_138974"
     android:fitsSystemWindows="true"
     android:orientation="vertical">
 
+
     <FrameLayout
         android:id="@+id/fl_fragment_container"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"></FrameLayout>
-</RelativeLayout>
+        android:layout_height="match_parent"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"></FrameLayout>
+
+    <ImageView
+        android:id="@+id/icon_menu"
+        android:layout_width="@dimen/menu_size"
+        android:layout_height="@dimen/menu_size"
+        android:layout_gravity="end"
+        android:layout_margin="@dimen/menu_margin"
+        android:src="@drawable/menu" />
+</FrameLayout>

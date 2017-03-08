@@ -26,6 +26,10 @@ import retrofit2.converter.gson.GsonConverterFactory;
 public class ForecastInteractor {
     private static ForecastInteractor mForecastInteractor;
 
+    private ForecastInteractor() {
+
+    }
+
     public static ForecastInteractor newInstance() {
         if (mForecastInteractor == null) mForecastInteractor = new ForecastInteractor();
         return mForecastInteractor;

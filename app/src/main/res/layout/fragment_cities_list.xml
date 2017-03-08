@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/transparent"
+    android:orientation="vertical"
+    tools:background="@android:color/black">
+
+    <TextView
+        android:id="@+id/title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/cities_list_title_margin_start"
+        android:layout_marginTop="@dimen/cities_list_title_margin_top"
+        android:text="@string/cities_list_title"
+        android:textColor="@android:color/white"
+        android:textSize="@dimen/cities_list_text_size" />
+
+    <EditText
+        android:id="@+id/et_city"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/title"
+        android:layout_marginEnd="@dimen/cities_list_side_margin"
+        android:layout_marginStart="@dimen/cities_list_side_margin"
+        android:layout_marginTop="@dimen/add_city_edit_text_margin_top"
+        android:hint="@string/add_new_city_hint"
+        android:textColor="@android:color/white"
+        android:textColorHint="#704c10"
+        android:visibility="gone"
+        tools:visibility="visible" />
+
+    <Button
+        android:id="@+id/btn_add_city"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_below="@id/et_city"
+        android:layout_marginEnd="20dp"
+        android:background="#f5be23"
+        android:text="Add"
+        android:textAllCaps="false"
+        android:textColor="#704c10"
+        android:visibility="gone"
+        tools:visibility="visible" />
+
+    <ListView
+        android:id="@+id/lv_cities"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/btn_add_city"
+        android:layout_marginEnd="@dimen/cities_list_side_margin"
+        android:layout_marginStart="@dimen/cities_list_side_margin"
+        android:layout_marginTop="@dimen/cities_list_margin_top"></ListView>
+
+    <ImageView
+        android:id="@+id/iv_add_new_city"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentEnd="true"
+        android:src="@drawable/fab" />
+</RelativeLayout>

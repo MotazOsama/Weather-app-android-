@@ -17,9 +17,9 @@ public class CityForecastDetailsFragmentPresenter
         extends MvpBasePresenter<CityForecastDetailsViewInterface> implements Updatable {
     private Repository<Result<ForecastResponse>> repository;
 
-    public void loadForecastDetails() {
+    public void loadForecastDetails(String city) {
         repository =
-                ForecastInteractor.newInstance().loadForeCastForSpeceficCity("london", 5);
+                ForecastInteractor.newInstance().loadForeCastForSpeceficCity(city, 5);
 
         repository.addUpdatable(this);
     }

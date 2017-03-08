@@ -47,10 +47,10 @@
 
         <ImageView
             android:id="@+id/iv_weather_icon"
-            android:layout_width="70dp"
-            android:layout_height="60dp"
+            android:layout_width="@dimen/weather_icon_width"
+            android:layout_height="@dimen/weather_icon_height"
             android:layout_centerVertical="true"
-            android:layout_marginStart="20dp"
+            android:layout_marginStart="@dimen/weather_icon_margin_start"
             android:layout_toEndOf="@id/tv_forecast_temp"
             tools:src="@drawable/cloudy_day" />
     </RelativeLayout>
@@ -68,8 +68,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_centerInParent="true"
-            android:layout_marginEnd="20dp"
-            android:layout_marginStart="20dp"></ListView>
+            android:layout_marginEnd="@dimen/city_forecast_details_side_margin"
+            android:layout_marginStart="@dimen/city_forecast_details_side_margin"></ListView>
     </RelativeLayout>
 
 </RelativeLayout>

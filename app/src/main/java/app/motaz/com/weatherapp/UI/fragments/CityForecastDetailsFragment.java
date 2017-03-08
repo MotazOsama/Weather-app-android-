@@ -16,7 +16,7 @@ import com.hannesdorfmann.mosby.mvp.MvpFragment;
 import java.util.List;
 
 import app.motaz.com.weatherapp.R;
-import app.motaz.com.weatherapp.UI.WeatherAdapter;
+import app.motaz.com.weatherapp.UI.adapters.WeatherAdapter;
 import app.motaz.com.weatherlib.models.ForecastResponse;
 import app.motaz.com.weatherlib.models.Weather;
 import app.motaz.com.weatherlib.presenters.CityForecastDetailsFragmentPresenter;
@@ -43,9 +43,11 @@ public class CityForecastDetailsFragment
     ListView listviewDaysForecastList;
     @BindView(R.id.iv_weather_icon)
     ImageView ivWeatherIcon;
+    private String city;
 
-    public static CityForecastDetailsFragment newInstance() {
+    public static CityForecastDetailsFragment newInstance(String city) {
         CityForecastDetailsFragment fragment = new CityForecastDetailsFragment();
+        fragment.setCity(city);
         return fragment;
     }
 
@@ -60,7 +62,12 @@ public class CityForecastDetailsFragment
     @Override
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        getPresenter().loadForecastDetails();
+        getPresenter().loadForecastDetails(city);
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
     }
 
     @Override
@@ -102,5 +109,9 @@ public class CityForecastDetailsFragment
     private void showNextDaysWeather(List<Weather> weatherList) {
         WeatherAdapter adapter = new WeatherAdapter(getActivity(), 0, weatherList);
         listviewDaysForecastList.setAdapter(adapter);
+    }
+
+    public void setCity(String city) {
+        this.city = city;
     }
 }

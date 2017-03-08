@@ -1,4 +1,4 @@
-package app.motaz.com.weatherapp.UI;
+package app.motaz.com.weatherapp.UI.adapters;
 
 import android.content.Context;
 import android.support.annotation.LayoutRes;

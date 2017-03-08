@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="city_name_top_margin">60dp</dimen>
+    <dimen name="city_name_text_size">36sp</dimen>
+    <dimen name="forecast_date_text_size">20sp</dimen>
+    <dimen name="forecast_date_margin_top">30dp</dimen>
+    <dimen name="weather_row_view_side_margin">20dp</dimen>
+    <dimen name="menu_size">25dp</dimen>
+    <dimen name="menu_margin">10dp</dimen>
+    <dimen name="cities_list_text_size">26sp</dimen>
+    <dimen name="cities_list_title_margin_top">20dp</dimen>
+    <dimen name="cities_list_title_margin_start">20dp</dimen>
+    <dimen name="cities_list_side_margin">20dp</dimen>
+    <dimen name="add_city_edit_text_margin_top">20dp</dimen>
+    <dimen name="cities_list_margin_top">20dp</dimen>
+    <dimen name="weather_icon_width">70dp</dimen>
+    <dimen name="weather_icon_height">60dp</dimen>
+    <dimen name="weather_icon_margin_start">20dp</dimen>
+    <dimen name="city_forecast_details_side_margin">20dp</dimen>
+</resources>
